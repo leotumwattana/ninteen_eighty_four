@@ -4,4 +4,27 @@
 body {
   font-family: 'Open Sans', sans-serif;
   // font-family: 'Exo', sans-serif;
+  padding-top: 80px;
+}
+
+footer {
+  text-align: center;
+  background-color: #333;
+  padding-top: 10px;
+  color: #fff;
+  a, span {
+    font-size: 70%;
+    margin: 0 15px;
+  }
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -40px;
+}
+
+footer, .push {
+  height: 40px;
 }

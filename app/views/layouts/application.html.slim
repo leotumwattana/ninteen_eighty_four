@@ -29,10 +29,12 @@ html lang="en"
 
     main role="main" class="container wrapper"
       == yield
+      #push
 
-    #footer
-      a href="/privacy" Privacy Policy &bull;
-      a href="/terms" Terms of Use &bull;
-      | &copy; 1984
+    footer
+      .right
+        a href="/privacy" Privacy Policy
+        a href="/terms" Terms of Use
+        span &copy; 1984
 
     = javascript_include_tag "application"
