@@ -1,0 +1,38 @@
+doctype html
+html lang="en"
+  head
+    title = content_for?(:title) ? yield(:title) : "foundation-rails"
+
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "vendor/modernizr"
+    = csrf_meta_tags
+
+  body
+    / nav
+    header class="fixed contain-to-grid" role="banner"
+      nav class="top-bar" role="navigation"
+        ul.title-area
+          li.name
+            h1
+              a href="#" 1984
+          li class="toggle-topbar menu-icon"
+            a href="#" Menu
+
+        section.top-bar-section
+          ul.right
+            li.active
+              a href="#" Site
+            li
+              a href="#" Lolo
+
+    main role="main" class="container wrapper"
+      == yield
+
+    #footer
+      a href="/privacy" Privacy Policy &bull;
+      a href="/terms" Terms of Use &bull;
+      | &copy; 1984
+
+    = javascript_include_tag "application"
