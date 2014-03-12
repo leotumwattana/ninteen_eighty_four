@@ -1,3 +1,6 @@
 class User
-  attr_accessor :email
+  include Mongoid::Document
+  include Mongoid::Timestamps
+
+  field :email, type: String
 end
