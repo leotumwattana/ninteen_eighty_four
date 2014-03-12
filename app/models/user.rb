@@ -12,6 +12,17 @@ class User
 
   before_save :encrypt_password
 
+  def self.authenticate(email, password)
+    user = User.find_by email: email
+    user if user and user.authenticate password
+  end
+
+  def authenticate(password)
+    self.fugu == BCrypt::Engine.hash_secret(password, self.wasabi)
+  end
+
+  protected
+
   def encrypt_password
     if password.present?
       self.wasabi = BCrypt::Engine.generate_salt
