@@ -7,6 +7,8 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'foundation-rails'
 gem 'slim'
+gem 'bson_ext'
+gem 'mongoid', github: 'mongoid/mongoid'
 
 group :development, :test do
   gem "better_errors"
