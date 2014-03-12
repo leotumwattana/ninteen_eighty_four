@@ -14,3 +14,8 @@
         .row
           .large-12.columns
             input type="submit" value="Sign In" class="button"
+
+ol
+  - @users.each do |user|
+    li
+      = user.email
