@@ -5,8 +5,13 @@ class SessionController < ApplicationController
   end
 
   def create
-    # render text: "Yo! #{params[:user][:email]} ... All your passwords are belong to us: #{params[:user][:password]}"
-    render text: User.authenticate(params[:user][:email], params[:user][:password])
+    @user = User.authenticate(params[:user][:email], params[:user][:password])
+
+    if @user
+      render text: "#{@user.email} is in the house yo!"
+    else
+      render text: "Who the funk are you"
+    end
   end
 
   def destroy
