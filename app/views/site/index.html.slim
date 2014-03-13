@@ -1,21 +1,16 @@
 .row
   div class="medium-4 medium-offset-4 columns"
-    form action="#" id="login-form" method="post" accept-charset="UTF-8"
+    = form_for :user, url: login_url, html: { id: 'login-form'} do |f|
       fieldset
         legend Login
         .row
           .medium-12.columns
-            label for="user-email" class="hide" Email
-            input type="text" id="user-email" name="user[email]" placeholder="Email Address"
+            = f.label :email, class: 'hide'
+            = f.text_field :email, placeholder: 'Email address'
         .row
           .medium-12.columns
-            label for="user-password" class="hide" Password
-            input type="password" id="user-password" name="user[password]" placeholder="Password"
+            = f.label :password, class: 'hide'
+            = f.password_field :password, placeholder: 'Password'
         .row
           .large-12.columns
-            input type="submit" value="Sign In" class="button"
-
-ol
-  - @users.each do |user|
-    li
-      = user.email
+            = f.submit "Sign in", class: 'button'
