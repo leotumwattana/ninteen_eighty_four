@@ -1,4 +1,7 @@
 .row
+  div class="medium-4 medium-offset-4 columns alert-box alert round center"
+    = @messages
+.row
   div class="medium-4 medium-offset-4 columns"
     = form_for :user, url: login_url, html: { id: 'login-form'} do |f|
       fieldset
