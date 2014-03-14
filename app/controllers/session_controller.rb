@@ -1,7 +1,6 @@
 class SessionController < ApplicationController
 
   def new
-    @messages = flash.map { |k, v| "#{k.capitalize}: #{v}" }.join ';'
   end
 
   def create
@@ -10,7 +9,7 @@ class SessionController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_url
     else
-      # render text: "Who the funk are you"
+      flash.now[:alert] = "Please check your email and password."
       render :new
     end
   end
