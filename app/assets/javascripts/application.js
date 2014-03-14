@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require_tree .
+//= require ../../../vendor/assets/javascripts/noty/packaged/jquery.noty.packaged.min
+//= require ../../../vendor/assets/javascripts/noty/themes/default
 
 $(function(){ $(document).foundation(); });
