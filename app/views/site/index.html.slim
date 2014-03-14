@@ -1,16 +1,3 @@
-.row
-  div class="medium-4 medium-offset-4 columns"
-    = form_for :user, url: login_url, html: { id: 'login-form'} do |f|
-      fieldset
-        legend Login
-        .row
-          .medium-12.columns
-            = f.label :email, class: 'hide'
-            = f.text_field :email, placeholder: 'Email address'
-        .row
-          .medium-12.columns
-            = f.label :password, class: 'hide'
-            = f.password_field :password, placeholder: 'Password'
-        .row
-          .large-12.columns
-            = f.submit "Sign in", class: 'button'
+ol
+  - @users.each do |user|
+    li = user.email
