@@ -11,6 +11,7 @@ class User
   field :fugu, type: String
 
   before_save :encrypt_password
+  validates :email, presence: true, uniqueness: {case_sensitive: false}
 
   def self.authenticate(email, password)
     user = User.find_by email: email
