@@ -42,6 +42,11 @@ User.create([
     password_confirmation: "ruleroftheworld"
   },
   {
+    email: "charlie@gmail.com",
+    password: "starrysocks",
+    password_confirmation: "starrysocks"
+  },
+  {
     email: "harry@gmail.com",
     password: "speeddemon",
     password_confirmation: "speeddemon"
