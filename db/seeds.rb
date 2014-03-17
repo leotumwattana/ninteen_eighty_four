@@ -3,8 +3,8 @@ User.destroy_all
 User.create([
   {
     email: "annie@gmail.com",
-    password: "iloveseaweed",
-    password_confirmation: "iloveseaweed"
+    password: "seaweed",
+    password_confirmation: "seaweed"
   },
   {
     email: "kulio@gmail.com",
@@ -45,5 +45,35 @@ User.create([
     email: "harry@gmail.com",
     password: "speeddemon",
     password_confirmation: "speeddemon"
+  },
+  {
+    email: "julie@gmail.com",
+    password: "bananas",
+    password_confirmation: "bananas"
+  },
+  {
+    email: "muwah@gmail.com",
+    password: "adventure",
+    password_confirmation: "adventure"
+  },
+  {
+    email: "joseph@gmail.com",
+    password: "secretgenius",
+    password_confirmation: "secretgenius"
+  },
+  {
+    email: "nigel@gmail.com",
+    password: "golf",
+    password_confirmation: "golf"
+  },
+  {
+    email: "victor@gmail.com",
+    password: "2chicken",
+    password_confirmation: "2chicken"
+  },
+  {
+    email: "alex@gmail.com",
+    password: "onimask",
+    password_confirmation: "onimask"
   },
 ])
