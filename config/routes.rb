@@ -6,6 +6,10 @@ NinteenEightyFour::Application.routes.draw do
   post    'login'  => 'session#create'
   delete  'logout' => 'session#destroy'
 
+  get   'reset/:code' => 'password#edit', as: :reset
+  put   'reset/:code' => 'password#update'
+  patch 'reset/:code' => 'password#update'
+
   get '/privacy' => 'site#privacy'
   get '/terms'   => 'site#terms'
 end
