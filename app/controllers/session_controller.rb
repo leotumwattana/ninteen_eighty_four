@@ -5,9 +5,15 @@ class SessionController < ApplicationController
   end
 
   def create
-    @user = User.authenticate(params[:user][:email], params[:user][:password])
-    if @user
-      session[:user_id] = @user.id
+    user = User.find_by(email: params[:user][:email])
+    password = params[:user][:password]
+
+    if password.blank?
+      user.set_reset_password if user
+      flash.now[:notice] = "We'll send you an email..."
+      render :new
+    elsif user and user.authenticate(password)
+      session[:user_id] = user.id
       redirect_to root_url
     else
       flash.now[:alert] = "Please check your email and password."
