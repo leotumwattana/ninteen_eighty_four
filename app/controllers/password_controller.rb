@@ -2,6 +2,7 @@ class PasswordController < ApplicationController
 
   def edit
     @user = User.find_by code: params[:code]
+    redirect_to login_url, notice: "Your reset link has expired. Please generate a new one" unless @user
   end
 
   def update
