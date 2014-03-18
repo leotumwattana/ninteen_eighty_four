@@ -7,11 +7,13 @@ class PasswordController < ApplicationController
   def update
     @user = User.find_by code: params[:code]
 
-    if @user.update user_params
-      render text: "Success"
-    else
-      render text: "Oopsies"
+    if params[:user][:password].blank?
+      @user.errors.add(:password, "This field can't be blank")
+    elsif @user.update_attributes user_params
+      render text: "Success" and return
     end
+    render text: @user.errors.messages
+
   end
 
   private
