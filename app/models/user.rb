@@ -45,8 +45,13 @@ class User
   end
 
   def reset_password(params)
-    if self.update_attributes(params)
-      self.update_attributes(params.merge( code: nil, expires_at: nil ))
+    if params[:password].blank?
+      self.errors.add(:password, "can't be blank")
+      false
+    else
+      if self.update_attributes(params)
+        self.update_attributes(params.merge( code: nil, expires_at: nil ))
+      end
     end
   end
 

@@ -19,6 +19,17 @@ class PasswordResetter
     end
   end
 
+  def update_password(user, params)
+    if user.reset_password( params )
+      # success
+      UserNotifier.password_was_reset(user).deliver
+    else
+      # fail
+      @flash.now[:alert] = user.errors
+      nil
+    end
+  end
+
   def set_code_and_email_reset_password
     if @user.set_reset_password
       begin

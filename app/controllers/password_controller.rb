@@ -11,32 +11,13 @@ class PasswordController < ApplicationController
 
   def update
     if @user = User.find_by_code(params[:code])
-    # if user if found
-      if params[:user][:password].blank?
-
-        @user.errors.add(:password, "can't be blank")
-        flash.now[:alert] = @user.errors
-        render :edit
-
-      elsif @user.reset_password( user_params )
-
-        UserNotifier.password_was_reset(@user).deliver
-        log_user_in( @user, RESET_SUCCESS )
-
-      else
-
-        flash.now[:alert] = @user.errors
-        render :edit
-
+      if PasswordResetter.new(flash).update_password(@user, user_params)
+        return if log_user_in( @user, RESET_SUCCESS )
       end
-
-    # otherwise show a message not found
     else
-
-      redirect_to root_url, notice: "No code found."
-
+      flash.now[:alert] = LINK_EXPIRED
     end
-
+    render :edit
   end
 
   private
