@@ -41,7 +41,13 @@ class User
 
   def set_expiration
     self.expires_at = PASSWORD_RESET_EXPIRES.hours.from_now
-    self.save!
+    self.save
+  end
+
+  def reset_password(params)
+    if self.update_attributes(params)
+      self.update_attributes(params.merge( code: nil, expires_at: nil ))
+    end
   end
 
   protected
