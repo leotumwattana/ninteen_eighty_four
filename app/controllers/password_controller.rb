@@ -21,8 +21,7 @@ class PasswordController < ApplicationController
       elsif @user.reset_password( user_params )
 
         UserNotifier.password_was_reset(@user).deliver
-        log_user_in( @user )
-        redirect_to root_url, notice: RESET_SUCCESS
+        log_user_in( @user, RESET_SUCCESS )
 
       else
 
