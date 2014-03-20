@@ -1,5 +1,11 @@
 .row
   .large-12.columns
+    h1 Active
     ul
       - @bmails.each do |bmail|
-        li = link_to bmail.title, bmail_url(bmail.id)
+        li
+          = link_to bmail.title, bmail_path(bmail.id)
+          = link_to "edit", edit_bmail_path(bmail.id)
+    h1 Pending
+
+    h1 Sent
