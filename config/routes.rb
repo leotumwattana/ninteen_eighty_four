@@ -10,6 +10,9 @@ NinteenEightyFour::Application.routes.draw do
   put   'reset/:code' => 'password#update'
   patch 'reset/:code' => 'password#update'
 
+  resources :bmail
+
+
   get '/privacy' => 'site#privacy'
   get '/terms'   => 'site#terms'
 end
