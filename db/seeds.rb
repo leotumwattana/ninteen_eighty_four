@@ -1,4 +1,5 @@
 User.destroy_all
+BMail.destroy_all
 
 User.create([
   {
@@ -80,5 +81,23 @@ User.create([
     email: "alex@gmail.com",
     password: "onimask",
     password_confirmation: "onimask"
+  },
+])
+
+BMail.create([
+  {
+    title: "test1",
+    to: "abc@example.com, cnn@example.com",
+    content: "For your eyes only."
+  },
+  {
+    title: "test2",
+    to: "bbc@example.com, cnn@example.com",
+    content: "This will change your world."
+  },
+  {
+    title: "test3",
+    to: "aljazeera@example.com, morpheus@example.com",
+    content: "This is a red pill, blue pill thing."
   },
 ])
