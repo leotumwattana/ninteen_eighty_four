@@ -10,6 +10,7 @@ NinteenEightyFour::Application.routes.draw do
   put   'reset/:code' => 'password#update'
   patch 'reset/:code' => 'password#update'
 
+  resources :user
   resources :bmail
 
 
