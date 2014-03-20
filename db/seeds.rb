@@ -1,5 +1,5 @@
 User.destroy_all
-BMail.destroy_all
+Bmail.destroy_all
 
 User.create([
   {
@@ -84,7 +84,7 @@ User.create([
   },
 ])
 
-BMail.create([
+Bmail.create([
   {
     title: "test1",
     to: "abc@example.com, cnn@example.com",
