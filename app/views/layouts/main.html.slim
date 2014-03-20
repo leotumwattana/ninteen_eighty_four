@@ -1,0 +1,51 @@
+doctype html
+html lang="en"
+  head
+    title = content_for?(:title) ? yield(:title) : "foundation-rails"
+
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "vendor/modernizr"
+    = javascript_include_tag "http://code.jquery.com/jquery-2.1.0.js"
+    = csrf_meta_tags
+
+  body
+    / nav
+    header class="fixed contain-to-grid" role="banner"
+      nav class="top-bar" role="navigation"
+        ul.title-area
+          li.name
+            h1
+              = link_to "BMail", root_url
+          li class="toggle-topbar menu-icon"
+            a href="#" Menu
+
+        section.top-bar-section
+          ul.right
+            = link_to "Logout", logout_url, method: :delete, class: "button alert round" if current_user
+
+    main role="main" class="container wrapper"
+      .row
+        .medium-2.columns
+          aside
+            nav
+              ul
+                li = link_to "Create", "#", class: "button round"
+                li = link_to "Active", "#"
+                li = link_to "Pending", "#"
+                li = link_to "Sent", "#"
+                li = link_to "Trash", "#"
+
+        .medium-10.columns
+          == yield
+      == render partial: "layouts/messages"
+      #push
+
+    footer
+      .right
+        = link_to "Privacy Policy", privacy_url
+        = link_to "Terms of Use", terms_url
+        span &copy; 1984
+
+    = javascript_include_tag "application"
