@@ -1,10 +1,12 @@
-class BMailController < ApplicationController
+class BmailController < ApplicationController
 
   def index
-    @bmails = BMail.all.entries
+    @bmails = Bmail.all.entries
   end
 
   def show
+    id = params[:id]
+    @bmail = Bmail.find_by(id: id)
   end
 
   def new
