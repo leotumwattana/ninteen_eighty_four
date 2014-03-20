@@ -17,6 +17,10 @@ class Bmail
     self._to = emails.split(',').map { |e| e.strip.chomp }
   end
 
+  def pretty_to
+    self.to.join(', ')
+  end
+
   private
 
   def split_emails(emails)
