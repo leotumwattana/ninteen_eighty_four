@@ -1,7 +1,7 @@
 doctype html
 html lang="en"
   head
-    title = content_for?(:title) ? yield(:title) : "foundation-rails"
+    title = content_for?(:title) ? yield(:title) : "Bail!"
 
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
@@ -27,7 +27,7 @@ html lang="en"
 
     main role="main" class="container wrapper"
       .row
-        .medium-2.columns
+        .medium-3.columns
           aside
             nav
               ul
@@ -37,7 +37,7 @@ html lang="en"
                 li = link_to "Sent", "#"
                 li = link_to "Trash", "#"
 
-        .medium-10.columns
+        .medium-9.columns
           == yield
       == render partial: "layouts/messages"
       #push
