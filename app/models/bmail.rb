@@ -1,4 +1,4 @@
-class BMail
+class Bmail
 
   include Mongoid::Document
   include Mongoid::Timestamps
