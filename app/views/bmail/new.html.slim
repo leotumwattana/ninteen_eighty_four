@@ -1,0 +1,22 @@
+.row
+  .large-12.columns
+    = form_for :bmail, url: bmail_index_url, html: { id: 'login-form'} do |f|
+      fieldset
+        legend New BMail
+        .row
+          .medium-12.columns
+            = f.label :title
+            = f.text_field :title, placeholder: "Subject"
+        .row
+          .medium-12.columns
+            = f.label :to
+            = f.text_field :to, placeholder: "To"
+        .row
+          .medium-12.columns
+            = f.label :content, class: 'hide'
+            = f.text_area :content
+        .row
+          .medium-12.columns
+            = f.submit "Save", class: 'button round'
+
+
