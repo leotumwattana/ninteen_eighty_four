@@ -31,7 +31,8 @@ html lang="en"
           aside
             nav
               ul
-                li = link_to "Create", "#", class: "button round"
+                li = link_to "Create", new_bmail_path, class: "button round"
+                li = link_to "All", root_path
                 li = link_to "Active", "#"
                 li = link_to "Pending", "#"
                 li = link_to "Sent", "#"
