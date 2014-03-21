@@ -2,7 +2,7 @@ class BmailController < ApplicationController
   layout "main"
 
   def index
-    @bmails = Bmail.all.entries
+    @bmails = current_user.bmails
   end
 
   def show
@@ -13,7 +13,7 @@ class BmailController < ApplicationController
   end
 
   def create
-    Bmail.create(bmail_params)
+    current_user.bmails << Bmail.new(bmail_params)
     redirect_to bmail_index_path
   end
 
