@@ -14,7 +14,10 @@ class User
   field :code, type: String
   field :expires_at, type: Time
 
+  has_many :bmails
+
   before_save :set_random_password, :encrypt_password
+
   validates :email, presence: true, uniqueness: {case_sensitive: false}
   validates :password, confirmation: true
 
