@@ -7,6 +7,7 @@ class Bmail
   field :to, type: Array
   field :content, type: String
 
+  has_many :triggers
   belongs_to :user
 
   validates :title, presence: true
