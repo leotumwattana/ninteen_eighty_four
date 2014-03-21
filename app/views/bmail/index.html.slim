@@ -1,11 +1,20 @@
-.row
-  .large-12.columns
-    h1 Active
-    ul
-      - @bmails.each do |bmail|
-        li
-          = link_to bmail.title, bmail_path(bmail.id)
-          = link_to "edit", edit_bmail_path(bmail.id)
-    h1 Pending
+#bmail
+  .row
+    .large-12.columns
+      h1 Active
+      ul.bmails.active
+        - @bmails.each do |bmail|
+            li.bmail
+              = link_to bmail.title, edit_bmail_path(bmail.id)
 
-    h1 Sent
+      h1 Pending
+      ul.bmails.pending
+        - @bmails.each do |bmail|
+            li.bmail
+              = link_to bmail.title, edit_bmail_path(bmail.id)
+
+      h1 Sent
+      ul.bmails.sent
+        - @bmails.each do |bmail|
+            li.bmail
+              = link_to bmail.title, edit_bmail_path(bmail.id)

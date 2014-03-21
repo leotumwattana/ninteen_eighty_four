@@ -1,0 +1,25 @@
+#bmail {
+  ul.bmails {
+    li:first-child {
+      border-radius: 5px 5px 0 0;
+      -webkit-border-radius: 5px 5px 0 0;
+      border-bottom: 0;
+    }
+    li:last-child {
+      border-radius: 0 0 5px 5px;
+      -webkit-border-radius: 0 0 5px 5px;
+      border-bottom: 1px solid black;
+    }
+  }
+
+  li.bmail {
+    list-style: none;
+    display: block;
+
+    height: 40px;
+    padding: 8px 15px 0 30px;
+
+    border: 1px solid black;
+    border-bottom: 0;
+  }
+}
