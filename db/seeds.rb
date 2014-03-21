@@ -84,7 +84,8 @@ User.create([
   },
 ])
 
-Bmail.create([
+
+bmails = Bmail.create([
   {
     title: "test1",
     to: "abc@example.com, cnn@example.com",
@@ -101,3 +102,6 @@ Bmail.create([
     content: "This is a red pill, blue pill thing."
   },
 ])
+
+kulio = User.all.entries[1]
+kulio.bmails.concat bmails
