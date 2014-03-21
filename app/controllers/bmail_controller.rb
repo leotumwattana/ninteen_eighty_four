@@ -1,5 +1,8 @@
 class BmailController < ApplicationController
+
   layout "main"
+
+  before_action :is_authenticated?
 
   def index
     @bmails = current_user.bmails
