@@ -1,0 +1,7 @@
+.row
+  .medium-12.columns
+    ul
+      - @users.each do |user|
+        li
+          = link_to user.email, user_path(user.id)
+          = link_to "edit", edit_user_path(user.id)
