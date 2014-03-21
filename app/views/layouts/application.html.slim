@@ -11,17 +11,15 @@ html lang="en"
     = csrf_meta_tags
 
   body
-    / nav
+    / top-bar
     == render partial: "layouts/header"
+
     main role="main" class="container wrapper"
       == yield
       == render partial: "layouts/messages"
       #push
 
-    footer
-      .right
-        = link_to "Privacy Policy", privacy_url
-        = link_to "Terms of Use", terms_url
-        span &copy; 1984
+    / footer
+    == render partial: "layouts/footer"
 
     = javascript_include_tag "application"
