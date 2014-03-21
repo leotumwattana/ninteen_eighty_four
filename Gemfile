@@ -14,6 +14,7 @@ gem 'sidekiq'
 
 group :development, :test do
   # gem "better_errors"
+  gem "foreman"
   gem "binding_of_caller"
   gem "letter_opener"
   gem "pry"
