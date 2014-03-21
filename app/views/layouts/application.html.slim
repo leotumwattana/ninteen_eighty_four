@@ -1,7 +1,7 @@
 doctype html
 html lang="en"
   head
-    title = content_for?(:title) ? yield(:title) : "BMail"
+    title = content_for?(:title) ? yield(:title) : "Bail!"
 
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
@@ -12,19 +12,7 @@ html lang="en"
 
   body
     / nav
-    header class="fixed contain-to-grid" role="banner"
-      nav class="top-bar" role="navigation"
-        ul.title-area
-          li.name
-            h1
-              = link_to "BMail", root_url
-          li class="toggle-topbar menu-icon"
-            a href="#" Menu
-
-        section.top-bar-section
-          ul.right
-            = link_to "Logout", logout_url, method: :delete, class: "button alert round" if current_user
-
+    == render partial: "layouts/header"
     main role="main" class="container wrapper"
       == yield
       == render partial: "layouts/messages"
