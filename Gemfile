@@ -10,6 +10,7 @@ gem 'slim'
 gem 'bson_ext'
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'bcrypt'
+gem 'sidekiq'
 
 group :development, :test do
   # gem "better_errors"
