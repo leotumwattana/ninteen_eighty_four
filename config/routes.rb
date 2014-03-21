@@ -1,6 +1,6 @@
 NinteenEightyFour::Application.routes.draw do
 
-  root 'site#index'
+  root 'bmail#index'
 
   get     'login'  => 'session#new'
   post    'login'  => 'session#create'
