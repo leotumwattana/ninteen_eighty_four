@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 NinteenEightyFour::Application.routes.draw do
 
   root 'bmail#index'
@@ -13,6 +15,7 @@ NinteenEightyFour::Application.routes.draw do
   resources :user
   resources :bmail
 
+  mount Sidekiq::Web, at: '/sidekiq'
 
   get '/privacy' => 'site#privacy'
   get '/terms'   => 'site#terms'

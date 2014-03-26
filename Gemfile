@@ -11,6 +11,7 @@ gem 'bson_ext'
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'bcrypt'
 gem 'sidekiq'
+gem 'sinatra', require: false
 
 group :development, :test do
   # gem "better_errors"
