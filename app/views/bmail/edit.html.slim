@@ -1,5 +1,6 @@
 .row
   .large-12.columns
+    = link_to "Back", bmail_index_path
     = form_for @bmail, url: bmail_path, html: { id: 'login-form'} do |f|
       fieldset
         legend Edit BMail
