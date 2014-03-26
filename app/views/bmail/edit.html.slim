@@ -7,15 +7,34 @@
         .row
           .medium-12.columns
             = f.label :title
-            = f.text_field :title, placeholder: "Subject"
+            = f.text_field :title, placeholder: "Subject", required: true
         .row
           .medium-12.columns
             = f.label :to
-            = f.text_field :to, placeholder: "To"
+            = f.text_field :to, placeholder: "To", required: true
         .row
           .medium-12.columns
             = f.label :content, class: 'hide'
-            = f.text_area :content
+            = f.text_area :content, required: true
+        .row
+          = f.fields_for :triggers do |b|
+            fieldset
+              legend Triggers
+              = b.label :start, "On"
+              = b.datetime_local_field :start, required: true
+
+              = b.label :disarm, "Disarm Code"
+              = b.number_field :disarm, required: true
+
+              = b.label :grace, "Grace Period"
+              = b.number_field :grace
+
+              = b.label :repeat, "Repeats"
+              = b.number_field :repeat, value: 0
+
+              = b.label :interval
+              = b.number_field :interval, value: 0
+
         .row
           .medium-12.columns
             = f.submit "Update", class: 'button round'
