@@ -9,15 +9,21 @@ class Bmail
 
   has_many :triggers
   belongs_to :user
+  accepts_nested_attributes_for :triggers
 
   validates :title, presence: true
   validates :to, presence: true
   validates :content, presence: true
 
   alias _to= to=
+  alias to_as_array to
 
   def to=(emails)
     self._to = emails.split(',').map { |e| e.strip.chomp }
+  end
+
+  def to
+    self.to_as_array.join(', ')
   end
 
   def pretty_to
