@@ -2,7 +2,7 @@ require 'sidekiq/web'
 
 NinteenEightyFour::Application.routes.draw do
 
-  root 'bmail#index'
+  root 'site#index'
 
   get     'login'  => 'session#new'
   post    'login'  => 'session#create'
