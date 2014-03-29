@@ -12,6 +12,8 @@ $sent-font-color: #555;
 $sent-background-color: #ddd;
 $sent-border-color: #aaa;
 
+$dark-color: #202020;
+
 #bmail {
   ul.bmails { padding: 0; }
 
@@ -74,5 +76,54 @@ $sent-border-color: #aaa;
       width: 210px;
       border-right: 1px solid #ddd;
     }
+  }
+}
+
+.new-bmail-form {
+  .header {
+    background-color: $dark-color;
+    margin: 0;
+  }
+  h1 {
+    color: white;
+    margin: 0;
+    padding: 10px 20px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 100 !important;
+    font-size: 0.9em !important;
+  }
+  input, textarea {
+    margin: 0;
+    margin-top: -1px;
+    padding-left: 20px;
+    border: 1px solid $border-gray;
+    outline: none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  textarea {
+    height: 300px;
+    border: 1px solid $border-gray;
+    border-bottom: 0;
+    resize: vertical;
+  }
+
+  .footer {
+
+    padding: 10px 15px;
+    background-color: #F5F5F5;
+    height: 50px;
+    border: 1px solid $border-gray;
+
+    .button {
+      height: 30px;
+      line-height: 0.2em;
+    }
+  }
+  .columns {
+    // margin: 0;
+    // padding: 0;
   }
 }
