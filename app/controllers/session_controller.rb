@@ -1,7 +1,7 @@
 class SessionController < ApplicationController
 
   def new
-    redirect_to root_url, notice: "You are logged in" if current_user
+    redirect_to bmail_index_url, notice: "You are logged in" if current_user
   end
 
   def create
@@ -11,9 +11,7 @@ class SessionController < ApplicationController
     else
       return if log_user_in( UserAuthenticator.new(session, flash).authenticate_user(user_params) )
     end
-
-    render :new
-
+    redirect_to root_url, alert: "Please check your email / password combination and try again."
   end
 
   def destroy
