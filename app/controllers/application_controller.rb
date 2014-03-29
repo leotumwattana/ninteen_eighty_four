@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+
+  CONFIRM_EMAIL_NOTICE = "Sign up successful. Please check your email to confirm your account."
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -16,8 +18,12 @@ class ApplicationController < ActionController::Base
 
   def log_user_in(user, notice = nil)
     if user
-      session[:user_id] = user.id
-      redirect_to bmail_index_url, notice: notice
+      if user.email_confirmed
+        session[:user_id] = user.id
+        redirect_to bmail_index_url, notice: notice
+      else
+        redirect_to root_url, notice: CONFIRM_EMAIL_NOTICE
+      end
     end
   end
 
