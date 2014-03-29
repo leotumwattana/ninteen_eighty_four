@@ -84,6 +84,9 @@ User.create([
   },
 ])
 
+u = User.find_by(email: "kulio@gmail.com")
+u.email_confirmed = true
+u.save
 
 bmails = Bmail.create([
   {
@@ -101,7 +104,82 @@ bmails = Bmail.create([
     to: "aljazeera@example.com, morpheus@example.com",
     content: "This is a red pill, blue pill thing."
   },
+  {
+    title: "test1",
+    to: "abc@example.com, cnn@example.com",
+    content: "For your eyes only."
+  },
+  {
+    title: "test2",
+    to: "bbc@example.com, cnn@example.com",
+    content: "This will change your world."
+  },
+  {
+    title: "test3",
+    to: "aljazeera@example.com, morpheus@example.com",
+    content: "This is a red pill, blue pill thing."
+  },
+  {
+    title: "test1",
+    to: "abc@example.com, cnn@example.com",
+    content: "For your eyes only."
+  },
+  {
+    title: "test2",
+    to: "bbc@example.com, cnn@example.com",
+    content: "This will change your world."
+  },
+  {
+    title: "test3",
+    to: "aljazeera@example.com, morpheus@example.com",
+    content: "This is a red pill, blue pill thing."
+  },
+  {
+    title: "test1",
+    to: "abc@example.com, cnn@example.com",
+    content: "For your eyes only."
+  },
+  {
+    title: "test2",
+    to: "bbc@example.com, cnn@example.com",
+    content: "This will change your world."
+  },
+  {
+    title: "test3",
+    to: "aljazeera@example.com, morpheus@example.com",
+    content: "This is a red pill, blue pill thing."
+  },
+  {
+    title: "test1",
+    to: "abc@example.com, cnn@example.com",
+    content: "For your eyes only."
+  },
+  {
+    title: "test2",
+    to: "bbc@example.com, cnn@example.com",
+    content: "This will change your world."
+  },
+  {
+    title: "test3",
+    to: "aljazeera@example.com, morpheus@example.com",
+    content: "This is a red pill, blue pill thing."
+  },
+  {
+    title: "test1",
+    to: "abc@example.com, cnn@example.com",
+    content: "For your eyes only."
+  },
+  {
+    title: "test2",
+    to: "bbc@example.com, cnn@example.com",
+    content: "This will change your world."
+  },
+  {
+    title: "test3",
+    to: "aljazeera@example.com, morpheus@example.com",
+    content: "This is a red pill, blue pill thing."
+  },
 ])
 
-kulio = User.all.entries[1]
-kulio.bmails.concat bmails
+u.bmails.concat bmails
+u.save
