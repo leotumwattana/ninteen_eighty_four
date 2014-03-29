@@ -12,7 +12,8 @@ html lang="en"
 
   body
     / top-bar
-    == render partial: "layouts/header"
+    header class="fixed contain-to-grid" role="banner"
+      == render partial: "layouts/header"
 
     main role="main" class="container wrapper"
       == yield

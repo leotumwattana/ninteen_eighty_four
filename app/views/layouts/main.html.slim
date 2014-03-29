@@ -12,23 +12,19 @@ html lang="en"
 
   body
     / top-bar
-    == render partial: "layouts/header"
+    header class="fixed full-width-bar" role="banner"
+      == render partial: "layouts/header"
 
     main role="main" class="container wrapper"
-      .row
-        .medium-3.columns
-          aside
-            nav
-              ul
-                li = link_to "Create", new_bmail_path, class: "button round"
-                li = link_to "All", root_path
-                li = link_to "Active", "#"
-                li = link_to "Pending", "#"
-                li = link_to "Sent", "#"
-                li = link_to "Trash", "#"
+      aside
+        nav
+          ul
+            li = link_to 'Create', new_bmail_url, class: 'button small round expand'
+            li = link_to 'Active & Pending', bmail_index_url, class: 'active'
+            li = link_to 'Sent', '#'
 
-        .medium-9.columns
-          == yield
+      section.main
+        == yield
       == render partial: "layouts/messages"
       #push
 
