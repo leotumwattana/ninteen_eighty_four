@@ -10,9 +10,9 @@ class Bmail
 
   belongs_to :user, dependent: :nullify
 
-  scope :active, -> { where :trigger_date.ne => nil }
-  scope :pending, -> { where :trigger_date => nil }
-  scope :sent, -> { where :trigger_date.lte => Time.now, :trigger_date.ne => nil }
+  scope :active, -> { where(:trigger_date.ne => nil).order_by(:trigger_date.desc) }
+  scope :pending, -> { where(:trigger_date => nil).order_by(:created_at.desc) }
+  scope :sent, -> { where(:trigger_date.lte => Time.now, :trigger_date.ne => nil).order_by(:trigger_date.asc) }
 
   validates :title, presence: true
   validates :to, presence: true
