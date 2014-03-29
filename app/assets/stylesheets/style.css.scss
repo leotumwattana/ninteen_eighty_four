@@ -7,12 +7,15 @@ $darkPurple: #494058;
 $lightPurple: #D4CEEB;
 $purpleBackground: #c9c1e5;
 
+$side-bar-width: 180px;
+
 
 body {
   font-family: 'Open Sans', sans-serif;
   // font-family: 'Exo', sans-serif;
   padding-top: 70px;
   background-color: #eee;
+  position: relative;
 }
 
 .name {
@@ -53,10 +56,27 @@ footer, .push {
 }
 
 aside {
-  background-color: rgba(200,200,200,1);
+  border-right: 1px solid rgba(0,0,0,0.1);
+  width: $side-bar-width;
+  z-index: -1;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  bottom: 0px;
+
+  ul { padding: 30px 25px 0 5px; }
 
   nav li {
     list-style: none;
+  }
+
+  a {
+    color: black;
+    font-size: 0.9em;
+  }
+
+  a.active {
+    font-weight: bold;
   }
 }
 
@@ -64,7 +84,16 @@ h1 {
   font-family: 'Special Elite', cursive;
 }
 
+.full-width-bar {
+  nav {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 .top-bar-section {
+
+  a.button { margin-top: 12px; }
 
   .login-form {
 
