@@ -15,6 +15,8 @@ NinteenEightyFour::Application.routes.draw do
   resources :user
   resources :bmail
 
+  get 'sent' => 'bmail#sent', as: :sent
+
   mount Sidekiq::Web, at: '/sidekiq'
 
   get '/privacy' => 'site#privacy'

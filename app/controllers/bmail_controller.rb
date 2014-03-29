@@ -7,7 +7,11 @@ class BmailController < ApplicationController
   def index
     @active_bmails = current_user.bmails.active
     @pending_bmails = current_user.bmails.pending
+  end
+
+  def sent
     @sent_bmails = current_user.bmails.sent
+    render :sent
   end
 
   def show
