@@ -23,8 +23,8 @@ class User
   validates :email, presence: true, uniqueness: {case_sensitive: false}
   validates :email, format: { with: EMAIL_REGEX }
   validates :password, confirmation: true
-  validates :salt, presence: true
-  validates :fugu, presence: true
+  # validates :salt, presence: true
+  # validates :fugu, presence: true
 
   def self.authenticate(email, password)
     user = User.find_by email: email
