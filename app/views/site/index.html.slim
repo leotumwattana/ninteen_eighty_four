@@ -39,7 +39,7 @@ section.registration
   .row
     .medium-offset-2.medium-8.columns
       h1 Sign up for free
-      = form_for :user, method: :patch, html: { class: 'sign-up-form' } do |f|
+      = form_for :user, url: user_index_url, method: :post, html: { class: 'sign-up-form' } do |f|
         = f.label :email, class: 'hide'
         = f.text_field :email, placeholder: 'your@email.com', class: 'field'
         = f.label :password, class: 'hide'
