@@ -16,12 +16,7 @@ html lang="en"
       == render partial: "layouts/header"
 
     main role="main" class="container wrapper"
-      aside
-        nav
-          ul
-            li = link_to 'Create', new_bmail_url, class: 'button small round expand'
-            li = link_to 'Active & Pending', bmail_index_url, class: 'active'
-            li = link_to 'Sent', '#'
+      == render partial: "bmail/side_bar"
 
       section.main
         == yield

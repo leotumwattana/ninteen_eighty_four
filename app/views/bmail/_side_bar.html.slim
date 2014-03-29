@@ -1,0 +1,6 @@
+aside
+  nav
+    ul
+      li = link_to 'Create', new_bmail_url, class: 'button small round expand'
+      li = active_link_to 'Active & Pending', bmail_index_path
+      li = active_link_to 'Sent', sent_path
