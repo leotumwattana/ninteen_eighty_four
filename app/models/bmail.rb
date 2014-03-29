@@ -6,10 +6,13 @@ class Bmail
   field :title, type: String
   field :to, type: Array
   field :content, type: String
+  field :trigger_date, type: DateTime
 
-  has_many :triggers
-  belongs_to :user
-  accepts_nested_attributes_for :triggers
+  belongs_to :user, dependent: :nullify
+
+  scope :active, -> { where :trigger_date.ne => nil }
+  scope :pending, -> { where :trigger_date => nil }
+  scope :sent, -> { where :trigger_date.lte => Time.now, :trigger_date.ne => nil }
 
   validates :title, presence: true
   validates :to, presence: true
