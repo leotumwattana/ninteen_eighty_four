@@ -16,11 +16,3 @@
               = link_to "pending", edit_bmail_path(bmail.id), class: 'tag pending'
               = link_to bmail.to.truncate(27), edit_bmail_path(bmail.id), class: 'to'
               = link_to bmail.title, edit_bmail_path(bmail.id)
-
-      h1 Sent
-      ul.bmails.sent
-        - @sent_bmails.each do |bmail|
-            li.bmail
-              = link_to "sent", edit_bmail_path(bmail.id), class: 'tag sent'
-              = link_to bmail.to.truncate(27), edit_bmail_path(bmail.id), class: 'to'
-              = link_to bmail.title, edit_bmail_path(bmail.id)
