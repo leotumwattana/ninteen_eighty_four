@@ -12,6 +12,7 @@ gem 'mongoid', github: 'mongoid/mongoid'
 gem 'bcrypt'
 gem 'sidekiq'
 gem 'sinatra', require: false
+gem 'active_link_to'
 
 group :development, :test do
   # gem "better_errors"
