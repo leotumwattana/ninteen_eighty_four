@@ -6,8 +6,8 @@ $purpleBorder: #917fb0;
 $darkPurple: #494058;
 $lightPurple: #D4CEEB;
 $purpleBackground: #c9c1e5;
-
 $side-bar-width: 180px;
+$dark-color: #202020;
 
 
 body {
@@ -52,7 +52,7 @@ body {
 
 footer {
   text-align: center;
-  background-color: #202020;
+  background-color: $dark-color;
   padding-top: 10px;
   color: #fff;
   a, span {
@@ -313,7 +313,7 @@ section.main {
 aside {
   border-right: 1px solid rgba(0,0,0,0.1);
   width: $side-bar-width;
-  z-index: -1;
+  z-index: 0;
   position: fixed;
   top: 70px;
   left: 0;
