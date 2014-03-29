@@ -14,6 +14,7 @@ class User
   field :fugu, type: String
   field :code, type: String
   field :expires_at, type: Time
+  field :email_confirmed, type: Boolean
 
   has_many :bmails
 
