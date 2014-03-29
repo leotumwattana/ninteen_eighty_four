@@ -3,10 +3,20 @@ header class="fixed contain-to-grid" role="banner"
     ul.title-area
       li.name
         h1
-          = link_to "Bail!", root_url
+          = link_to "Bail Mail!", root_url
       li class="toggle-topbar menu-icon"
         a href="#" Menu
 
     section.top-bar-section
       ul.right
-        = link_to "Logout", logout_url, method: :delete, class: "button alert round" if current_user
+        - if current_user
+          li
+            = link_to "Logout", logout_url, method: :delete, class: "button alert round"
+        - else
+          li
+            = form_for :user, url: login_url, method: :post, html: { class: 'login-form'} do |f|
+              = f.text_field :email, placeholder: 'email'
+              = f.password_field :password, placeholder: 'password'
+              = f.submit 'Login', class: "large button round"
+          li
+            = link_to 'Sign Up', '#', class: 'right'
