@@ -19,10 +19,10 @@ group :development, :test do
   gem "binding_of_caller"
   gem "letter_opener"
   gem "pry"
+  gem 'rspec-rails'
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard-rspec'
   gem 'guard-livereload'
-  gem 'rspec-rails'
   gem 'factory_girl_rails'
 end
 
