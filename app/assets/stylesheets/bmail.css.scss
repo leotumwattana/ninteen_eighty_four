@@ -1,25 +1,78 @@
+$border-gray: #979797;
+
+$active-font-color: #B60000;
+$active-background-color: #FFA79A;
+$active-border-color: #C8442F;
+
+$pending-font-color: #1f6b7c;
+$pending-background-color: #2DD3E2;
+$pending-border-color: #0EB2C1;
+
+$sent-font-color: #555;
+$sent-background-color: #ddd;
+$sent-border-color: #aaa;
+
 #bmail {
-  ul.bmails {
-    li:first-child {
-      border-radius: 5px 5px 0 0;
-      -webkit-border-radius: 5px 5px 0 0;
-      border-bottom: 0;
-    }
-    li:last-child {
-      border-radius: 0 0 5px 5px;
-      -webkit-border-radius: 0 0 5px 5px;
-      border-bottom: 1px solid black;
-    }
-  }
+  ul.bmails { padding: 0; }
 
   li.bmail {
+
+    overflow: hidden;
+    font-family: Helvetica, Arial, sans-serif;
     list-style: none;
-    display: block;
-
-    height: 40px;
-    padding: 8px 15px 0 30px;
-
-    border: 1px solid black;
+    border: 1px solid $border-gray;
     border-bottom: 0;
+    padding: 5px 15px 5px 15px;
+    margin-left: -20px;
+    background-color: white;
+    height: 40px;
+
+    &:last-of-type {
+      border-bottom: 1px solid $border-gray;
+    }
+
+    a.tag {
+      margin-right: 25px;
+      border-radius: 2px;
+      padding: 2px 5px;
+      width: 200px;
+      display: inline-block;
+      text-align: center;
+      font-size: 0.8em;
+      font-weight: bold;
+      height: 20px;
+      line-height: 1.1em;
+    }
+
+    a {
+      color: black;
+      font-size: 0.8em;
+      font-weight: bold;
+    }
+
+    a.active {
+      color: $active-font-color;
+      background-color: $active-background-color;
+      border: 1px solid $active-border-color;
+    }
+
+    a.pending {
+      color: $pending-font-color;
+      background-color: $pending-background-color;
+      border: 1px solid $pending-border-color;
+    }
+
+    a.sent {
+      color: $sent-font-color;
+      background-color: $sent-background-color;
+      border: 1px solid $sent-border-color;
+    }
+
+    .to {
+      display: inline-block;
+      margin-right: 20px;
+      width: 210px;
+      border-right: 1px solid #ddd;
+    }
   }
 }
