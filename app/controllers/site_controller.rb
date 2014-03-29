@@ -1,9 +1,7 @@
 class SiteController < ApplicationController
 
-  # before_action :is_authenticated?
-
   def index
-    @users = User.all.entries
+    redirect_to bmail_index_url if current_user
   end
 
 end
