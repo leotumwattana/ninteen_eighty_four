@@ -3,18 +3,24 @@
     .large-12.columns
       h1 Active
       ul.bmails.active
-        - @bmails.each do |bmail|
+        - @active_bmails.each do |bmail|
             li.bmail
+              = link_to 'in ' + distance_of_time_in_words_to_now(bmail.trigger_date), edit_bmail_path(bmail.id), class: 'tag active'
+              = link_to bmail.to.truncate(27), edit_bmail_path(bmail.id), class: 'to'
               = link_to bmail.title, edit_bmail_path(bmail.id)
 
       h1 Pending
       ul.bmails.pending
-        - @bmails.each do |bmail|
+        - @pending_bmails.each do |bmail|
             li.bmail
+              = link_to "pending", edit_bmail_path(bmail.id), class: 'tag pending'
+              = link_to bmail.to.truncate(27), edit_bmail_path(bmail.id), class: 'to'
               = link_to bmail.title, edit_bmail_path(bmail.id)
 
       h1 Sent
       ul.bmails.sent
-        - @bmails.each do |bmail|
+        - @sent_bmails.each do |bmail|
             li.bmail
+              = link_to "sent", edit_bmail_path(bmail.id), class: 'tag sent'
+              = link_to bmail.to.truncate(27), edit_bmail_path(bmail.id), class: 'to'
               = link_to bmail.title, edit_bmail_path(bmail.id)

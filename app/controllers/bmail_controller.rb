@@ -5,7 +5,9 @@ class BmailController < ApplicationController
   before_action :is_authenticated?
 
   def index
-    @bmails = current_user.bmails
+    @active_bmails = current_user.bmails.active
+    @pending_bmails = current_user.bmails.pending
+    @sent_bmails = current_user.bmails.sent
   end
 
   def show
