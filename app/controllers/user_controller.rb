@@ -18,12 +18,13 @@ class UserController < ApplicationController
     if @user = User.create(user_params)
       # success
       log_user_in(@user)
-      redirect_to root_url
+      # redirect_to root_url
     else
       # fail
       flash.now[:alert] = CREATE_FAILED
       render :new
     end
+    # binding.pry
   end
 
   def edit
