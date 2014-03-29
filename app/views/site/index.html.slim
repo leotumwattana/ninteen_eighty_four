@@ -1,4 +1,51 @@
-h1 = "Welcome: #{@current_user.email}"
-ol
-  - @users.each do |user|
-    li = user.email
+section.hero
+  div.noise
+  .row
+    .medium-12.columns
+      = image_tag 'screen.png', class: 'screen'
+      = image_tag 'drone-group.png', class: 'drone-left'
+      = image_tag 'drone-group.png', class: 'drone-right'
+      = image_tag 'kulio-mini-iron.png', class: 'mini-iron'
+      = image_tag 'kulio-mini-flag.png', class: 'mini-flag'
+      = image_tag 'kulio-mini-hawkeye.png', class: 'mini-hawkeye'
+      = image_tag 'kulio-mini-swing.png', class: 'mini-swing'
+      = image_tag 'kulio-mini-thor.png', class: 'mini-thor'
+      h1 You just never know...
+section.use-cases
+  .row
+    .medium-4.columns
+      h1 Fighting against Dystopia?
+    .medium-4.columns
+      h1 Meeting the Mob Boss?
+    .medium-4.columns
+      h1 Staring Danger in the eye?
+section.tag-line
+  .row
+    .medium-12.columns
+      h1 Don't be caught unprepared.
+      h2 Get BMail so you can say:
+      h3 "If I don't return, your secret will be shared."
+section.how-it-works
+  .row
+    .medium-3.columns
+      h1 1
+    .medium-3.columns
+      h1 2
+    .medium-3.columns
+      h1 3
+    .medium-3.columns
+      h1 4
+section.registration
+  .row
+    .medium-offset-2.medium-8.columns
+      h1 Sign up for free
+      = form_for :user, method: :patch, html: { class: 'sign-up-form' } do |f|
+        = f.label :email, class: 'hide'
+        = f.text_field :email, placeholder: 'your@email.com', class: 'field'
+        = f.label :password, class: 'hide'
+        = f.password_field :password, placeholder: 'password', class: 'field'
+        = f.label :password_confirmation, class: 'hide'
+        = f.password_field :password_confirmation, placeholder: 'password confirmation', class: 'field'
+        = f.submit 'Register', class: 'button small round'
+
+
