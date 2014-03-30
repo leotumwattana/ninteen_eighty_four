@@ -16,6 +16,7 @@ NinteenEightyFour::Application.routes.draw do
   resources :bmail
 
   get 'sent' => 'bmail#sent', as: :sent
+  get 'cancel/:id' => 'bmail#cancel', as: :cancel
 
   mount Sidekiq::Web, at: '/sidekiq'
 
