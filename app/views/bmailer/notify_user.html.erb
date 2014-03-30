@@ -1,0 +1,13 @@
+<div style="font-family: Helvetica, Arial, sans-serif; color: #222; background-color: #eee; margin: 0; padding: 15px;">
+  <p>
+    Your BMail: <%= @bmail.title %> is about to be delivered in
+    <%= distance_of_time_in_words_to_now(@bmail.trigger_date - @bmail.time_zone.hours) %>.
+  </p>
+
+  <p> Follow this link to cancel your BMail: <%= link_to 'Disarm', root_url %> </p>
+
+  <p> Your BMail will be sent should you choose to ignore this message. </p>
+
+  <p> Good luck with your mission. We salute you! <br/><br/> BMail Team </p>
+</div>
+
