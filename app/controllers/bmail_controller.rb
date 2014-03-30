@@ -42,7 +42,7 @@ class BmailController < ApplicationController
   private
 
   def bmail_params
-    params.require(:bmail).permit(:title, :to, :content)
+    params.require(:bmail).permit(:title, :to, :content, :trigger_date)
   end
 
 end
