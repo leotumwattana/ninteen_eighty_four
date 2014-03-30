@@ -1,10 +1,14 @@
-Your BMail titled: <%= "#{@bmail.title}" %> is about to be delivered in the next hour.
+BMail - Alert!
+
+Your BMail: <%= "#{@bmail.title}" %> is about to be delivered in <%= distance_of_time_in_words_to_now(@bmail.trigger_date - @bmail.time_zone.hours) %>.
 
 Follow this link to cancel your BMail: <%= root_url %>
 
-Your BMail will be sent should you choose to ignore this message.
+OR
+
+Simply ignore this message and your BMail will be delivered as scheduled.
 
 
-Good luck with your mission. We salute you!
+Good luck!
 
 - BMail Team
