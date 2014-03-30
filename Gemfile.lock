@@ -250,6 +250,7 @@ DEPENDENCIES
   launchy
   letter_opener
   mongoid!
+  multi_json
   pry
   rails (= 4.0.3)
   rb-fsevent

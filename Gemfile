@@ -13,6 +13,7 @@ gem 'bcrypt'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'active_link_to'
+gem 'multi_json'
 
 group :development, :test do
   # gem "better_errors"
