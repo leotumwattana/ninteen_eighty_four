@@ -1,42 +1,26 @@
-.row
-  .large-12.columns
-    = link_to "Back", bmail_index_path
-    = form_for @bmail, url: bmail_path, html: { id: 'login-form'} do |f|
-      fieldset
-        legend Edit BMail
+.new-bmail-form
+  .row
+    .small-12.columns
+      .header
+        h1 New Bail Mail
+  .row
+    .small-12.columns
+      = form_for @bmail, url: bmail_url, html: { id: 'new-bmail-form'} do |f|
         .row
-          .medium-12.columns
-            = f.label :title
-            = f.text_field :title, placeholder: "Subject", required: true
+          .small-12.columns
+            = f.label :to, class: 'hide'
+            = f.text_field :to, placeholder: 'to'
+        .row.collapse
+          .small-7.columns
+            = f.label :title, class: 'hide'
+            = f.text_field :title, placeholder: 'subject'
+          .small-5.columns
+            = f.label :trigger_date, class: 'hide'
+            = f.datetime_local_field :trigger_date
         .row
-          .medium-12.columns
-            = f.label :to
-            = f.text_field :to, placeholder: "To", required: true
+          .small-12.columns
+            = f.text_area :content
         .row
-          .medium-12.columns
-            = f.label :content, class: 'hide'
-            = f.text_area :content, required: true
-        .row
-          = f.fields_for :triggers do |b|
-            fieldset
-              legend Triggers
-              = b.label :start, "On"
-              = b.datetime_local_field :start, required: true
-
-              = b.label :disarm, "Disarm Code"
-              = b.number_field :disarm, required: true
-
-              = b.label :grace, "Grace Period"
-              = b.number_field :grace
-
-              = b.label :repeat, "Repeats"
-              = b.number_field :repeat, value: 0
-
-              = b.label :interval
-              = b.number_field :interval, value: 0
-
-        .row
-          .medium-12.columns
-            = f.submit "Update", class: 'button round'
-
-
+          .small-12.columns
+            .footer
+              = f.submit "Save", class: 'button alert small round'
