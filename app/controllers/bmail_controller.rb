@@ -2,7 +2,7 @@ class BmailController < ApplicationController
 
   layout "main"
 
-  before_action :is_authenticated?
+  before_action :is_authenticated?, except: [:cancel]
 
   def index
     @active_bmails = current_user.bmails.active
@@ -42,6 +42,12 @@ class BmailController < ApplicationController
     bmail = Bmail.find(params[:id])
     bmail.destroy
     redirect_to root_url
+  end
+
+  def cancel
+    bmail = Bmail.find(params["id"])
+    render layout: "layouts/application"
+    binding.pry
   end
 
   private
