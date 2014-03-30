@@ -14,6 +14,7 @@ gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'active_link_to'
 gem 'multi_json'
+gem 'sidekiq-status'
 
 group :development, :test do
   # gem "better_errors"
