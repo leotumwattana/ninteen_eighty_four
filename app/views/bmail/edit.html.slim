@@ -27,6 +27,10 @@
               = f.submit "Save", class: 'button alert small round'
 
 javascript:
-  var d = new Date();
-  var offset = d.getTimezoneOffset();
-  $('#bmail_time_zone').val( -offset/60.0 );
+
+  $(document).ready(function() {
+    // set hidden field with time zone offset
+    var d = new Date();
+    var offset = d.getTimezoneOffset();
+    $('#bmail_time_zone').val( -offset/60.0 );
+  });
