@@ -1,9 +1,9 @@
 class UserNotifier < ActionMailer::Base
 
-  RESET_READY ="[Collateral] Reset your credentials."
-  RESET_SUCCESS = "[Collateral] Your password has been reset."
+  RESET_READY ="[BMail] Reset your credentials."
+  RESET_SUCCESS = "[BMail] Your password has been reset."
 
-  default from: "Collateral <support@collateral.com>"
+  default from: "BMail <support@collateral.com>"
 
   def reset_password(user)
     @user = user
