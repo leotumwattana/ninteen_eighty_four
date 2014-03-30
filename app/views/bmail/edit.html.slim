@@ -20,7 +20,13 @@
         .row
           .small-12.columns
             = f.text_area :content
+            = f.hidden_field :time_zone, value: 0
         .row
           .small-12.columns
             .footer
               = f.submit "Save", class: 'button alert small round'
+
+javascript:
+  var d = new Date();
+  var offset = d.getTimezoneOffset();
+  $('#bmail_time_zone').val( -offset/60.0 );
