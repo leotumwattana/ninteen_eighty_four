@@ -10,7 +10,7 @@ class Bmail
 
   belongs_to :user, dependent: :nullify
 
-  scope :active, -> { where(:trigger_date.ne => nil).order_by(:trigger_date.desc) }
+  scope :active, -> { where(:trigger_date.ne => nil, :trigger_date.gt => Time.now).asc(:trigger_date) }
   scope :pending, -> { where(:trigger_date => nil).order_by(:created_at.desc) }
   scope :sent, -> { where(:trigger_date.lte => Time.now, :trigger_date.ne => nil).order_by(:trigger_date.asc) }
 
