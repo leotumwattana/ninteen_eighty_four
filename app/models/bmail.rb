@@ -14,6 +14,9 @@ class Bmail
   field :scheduled_job_id, type: String
   field :time_zone, type: Integer, default: 0
 
+  field :advanced_alert_job_ids, type: Array, default: []
+  field :scheduled_delivery_job_ids, type: Array, default: []
+
   belongs_to :user, dependent: :nullify
 
   after_save :schedule_advanced_alert, :schedule_delivery
@@ -45,14 +48,21 @@ class Bmail
 
   def schedule_advanced_alert
     unless trigger_date.nil?
-      BailAlertWorker.perform_at(trigger_date - time_zone.hours - ADVANCED_ALERT_PERIOD, id.to_s)
+      Bmail.skip_callback(:save, :after, :schedule_advanced_alert)
+      job_id = BailAlertWorker.perform_at(trigger_date - time_zone.hours - ADVANCED_ALERT_PERIOD, id.to_s)
+      self.advanced_alert_job_ids << job_id
+      self.save
+      Bmail.set_callback(:save, :after, :schedule_advanced_alert)
     end
   end
 
   def schedule_delivery
     unless trigger_date.nil?
-      schedule_id = BailMailWorker.perform_at(trigger_date - time_zone.hours, id.to_s)
-      puts "THIS IS THE SCHEDULE ID: " + schedule_id.to_s
+      Bmail.skip_callback(:save, :after, :schedule_delivery)
+      job_id = BailMailWorker.perform_at(trigger_date - time_zone.hours, id.to_s)
+      self.scheduled_delivery_job_ids << job_id
+      self.save
+      Bmail.set_callback(:save, :after, :schedule_delivery)
     end
   end
 
