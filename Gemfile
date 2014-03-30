@@ -16,6 +16,10 @@ gem 'active_link_to'
 gem 'multi_json'
 gem 'sidekiq-status'
 
+group :assets do
+  gem 'foundation-icons-sass-rails'
+end
+
 group :development, :test do
   # gem "better_errors"
   gem "foreman"

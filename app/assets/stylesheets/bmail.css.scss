@@ -76,6 +76,11 @@ $dark-color: #202020;
       width: 210px;
       border-right: 1px solid #ddd;
     }
+
+    i {
+      color: $active-font-color;
+      font-size: 1.4em;
+    }
   }
 }
 

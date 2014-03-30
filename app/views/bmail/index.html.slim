@@ -8,7 +8,8 @@
               = link_to "in " + distance_of_time_in_words_to_now(bmail.trigger_date - bmail.time_zone.hours), edit_bmail_path(bmail.id), class: 'tag active'
               = link_to bmail.to.truncate(27), edit_bmail_path(bmail.id), class: 'to'
               = link_to bmail.title, edit_bmail_path(bmail.id)
-              = link_to "delete", bmail_url(bmail.id), method: :delete, confirm: 'Are you sure?', class: 'right'
+              = link_to bmail_url(bmail.id), method: :delete, confirm: 'Are you sure?', class: 'right'
+                i.fi-x
 
       h1 Pending
       ul.bmails.pending
@@ -17,4 +18,5 @@
               = link_to "pending", edit_bmail_path(bmail.id), class: 'tag pending'
               = link_to bmail.to.truncate(27), edit_bmail_path(bmail.id), class: 'to'
               = link_to bmail.title, edit_bmail_path(bmail.id)
-              = link_to "delete", bmail_url(bmail.id), method: :delete, confirm: 'Are you sure?', class: 'right'
+              = link_to bmail_url(bmail.id), method: :delete, confirm: 'Are you sure?', class: 'right'
+                i.fi-x
