@@ -5,18 +5,18 @@
         h1 New Bail Mail
   .row
     .small-12.columns
-      = form_for :bmail, url: bmail_index_url, html: { id: 'login-form'} do |f|
+      = form_for :bmail, url: bmail_index_url, html: { id: 'edit-bmail-form'} do |f|
         .row
           .small-12.columns
             = f.label :to, class: 'hide'
             = f.text_field :to, placeholder: 'to'
-        .row
+        .row.collapse
           .small-7.columns
             = f.label :title, class: 'hide'
             = f.text_field :title, placeholder: 'subject'
           .small-5.columns
             = f.label :trigger_date, class: 'hide'
-            = f.text_field :trigger_date, placeholder: 'trigger_date'
+            = f.datetime_local_field :trigger_date
         .row
           .small-12.columns
             = f.text_area :content
@@ -24,27 +24,3 @@
           .small-12.columns
             .footer
               = f.submit "Save", class: 'button alert small round'
-
-
-  / .row
-  /   .large-12.columns
-  /     = form_for :bmail, url: bmail_index_url, html: { id: 'login-form'} do |f|
-  /       fieldset
-  /         legend New BMail
-  /         .row
-  /           .medium-12.columns
-  /             = f.label :title
-  /             = f.text_field :title, placeholder: "Subject"
-  /         .row
-  /           .medium-12.columns
-  /             = f.label :to
-  /             = f.text_field :to, placeholder: "To"
-  /         .row
-  /           .medium-12.columns
-  /             = f.label :content, class: 'hide'
-  /             = f.text_area :content
-  /         .row
-  /           .medium-12.columns
-  /             = f.submit "Save", class: 'button round'
-
-
