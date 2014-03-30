@@ -1,3 +1,14 @@
-#bmail
+#bmail-cancel
   .row
-    ' Lala
+    .small-8.columns.small-offset-2
+      h1 Congratulations
+      p
+        ' You have successfully cancelled your Bmail: <span class="title">#{ @bmail.title }</span>
+      p
+        ' Seems like your mission was a success.
+      p
+        ' We salute you!
+        br
+        ' BMail Team
+      p
+        = link_to 'Leave', root_url, class: 'button small round'
