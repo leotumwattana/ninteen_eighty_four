@@ -1,20 +1,22 @@
 class Bmail
 
+  ACTIVE_MONGOID_JS_QUERY = "(this.trigger_date - (this.time_zone * 60 * 60 * 1000)) > new Date().getTime()"
+
   include Mongoid::Document
   include Mongoid::Timestamps
-
-  attr_accessor :time_zone
 
   field :title, type: String
   field :to, type: Array
   field :content, type: String
   field :trigger_date, type: DateTime
+  field :scheduled_job_id, type: String
+  field :time_zone, type: Integer, default: 0
 
   belongs_to :user, dependent: :nullify
 
-  before_save :update_time_zone
+  after_save :schedule_bmail
 
-  scope :active, -> { where(:trigger_date.ne => nil, :trigger_date.gt => Time.now).asc(:trigger_date) }
+  scope :active, -> { where(:trigger_date.ne => nil).where(ACTIVE_MONGOID_JS_QUERY).desc(:trigger_date) }
   scope :pending, -> { where(:trigger_date => nil).order_by(:created_at.desc) }
   scope :sent, -> { where(:trigger_date.lte => Time.now, :trigger_date.ne => nil).order_by(:trigger_date.asc) }
 
@@ -39,9 +41,9 @@ class Bmail
 
   private
 
-  def update_time_zone
-    if not (self.time_zone.blank? || self.time_zone.nil?)
-      self.trigger_date -= self.time_zone.to_i.hours
+  def schedule_bmail
+    unless trigger_date.nil?
+      BailAlertWorker.perform_at(trigger_date - time_zone.hours, id.to_s)
     end
   end
 
