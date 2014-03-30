@@ -6,7 +6,7 @@
     <td style="padding: 30px;">Your BMail: <strong style="color: #C8442F;"><%= @bmail.title %></strong> is about to be delivered in <strong style="color: #FC9C00;"><em><%= distance_of_time_in_words_to_now(@bmail.trigger_date - @bmail.time_zone.hours) %>.</em></strong></td>
   </tr>
   <tr>
-    <td style="padding: 0 30px;">Follow this link should you choose to <strong style="color: #594c9c">cancel</strong> your BMail: <a style="color: #0EB2C1;" href="#"><strong><%= link_to 'CANCEL', root_url %></strong></a></td>
+    <td style="padding: 0 30px;">Follow this link should you choose to <strong style="color: #594c9c">cancel</strong> your BMail: <a style="color: #0EB2C1;" href="#"><strong><%= link_to 'CANCEL', cancel_url(@bmail.id), method: :post %></strong></a></td>
   </tr>
   <tr>
     <td style="padding: 20 30px;">OR</td>
