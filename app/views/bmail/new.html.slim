@@ -1,32 +1,10 @@
-.new-bmail-form
-  .row
-    .small-12.columns
-      .header
-        h1 New Bail Mail
-  .row
-    .small-12.columns
-      = form_for :bmail, url: bmail_index_url, html: { id: 'edit-bmail-form'} do |f|
-        .row
-          .small-12.columns
-            = f.label :to, class: 'hide'
-            = f.text_field :to, placeholder: 'to'
-        .row.collapse
-          .small-7.columns
-            = f.label :title, class: 'hide'
-            = f.text_field :title, placeholder: 'subject'
-          .small-5.columns
-            = f.label :trigger_date, class: 'hide'
-            = f.datetime_local_field :trigger_date
-        .row
-          .small-12.columns
-            = f.text_area :content
-            = f.hidden_field :time_zone, value: 0
-        .row
-          .small-12.columns
-            .footer
-              = f.submit "Save", class: 'button alert small round'
+= render partial: "form", locals: { title: "New BMail", bmail: :bmail, url: bmail_index_url }
 
 javascript:
-  var d = new Date();
-  var offset = d.getTimezoneOffset();
-  $('#bmail_time_zone').val( -offset/60.0 );
+
+  $(document).ready(function() {
+    // set hidden field with time zone offset
+    var d = new Date();
+    var offset = d.getTimezoneOffset();
+    $('#bmail_time_zone').val( -offset/60.0 );
+  });
