@@ -217,14 +217,19 @@ h1 {
 .use-cases {
 
   background-color: $lightPurple;
-  height: 280px;
+  height: 310px;
   border-top: 1px solid $purpleBorder;
   border-bottom: 1px solid $purpleBorder;
+  text-align: center;
 
   h1 {
     font-size: 1.3em;
-    text-align: center;
     color: $darkPurple;
+    height: 90px;
+  }
+
+  .shift-up {
+    margin-top: -13px;
   }
 
   .columns {
