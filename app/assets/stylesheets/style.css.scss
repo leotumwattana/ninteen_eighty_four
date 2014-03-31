@@ -274,6 +274,28 @@ h1 {
   padding: 40px 0;
   background-color: $lightPurple;
   border-bottom: 1px solid $purpleBorder;
+  text-align: center;
+
+  h1 {
+    font-size: 1.3em;
+    color: $darkPurple;
+  }
+
+  p {
+    font-size: 0.9em;
+    color: $darkPurple;
+    height: 40px;
+  }
+
+  .header {
+    h1 {
+      padding-bottom: 20px;
+      margin-bottom: 40px;
+      font-size: 1.8em;
+      border-bottom: 1px dashed $darkPurple;
+    }
+  }
+
 }
 
 .registration {
