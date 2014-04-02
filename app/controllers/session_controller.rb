@@ -4,7 +4,11 @@ class SessionController < ApplicationController
   LOGGED_IN_NOTICE = "You are logged in"
 
   def new
-    redirect_to bmails_url, notice: LOGGED_IN_NOTICE if current_user
+    if current_user
+      redirect_to bmails_url, notice: LOGGED_IN_NOTICE
+    else
+      redirect_to root_url, notice: CHECK_EMAIL_PASSWORD_NOTICE
+    end
   end
 
   def create
