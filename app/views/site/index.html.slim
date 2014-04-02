@@ -48,13 +48,13 @@ section.how-it-works
     .medium-3.columns
       h1 Ignore
       p
-        ' Ignore to let it send as scheduled.
+        ' to let it send as scheduled.
       = image_tag 'question-icon.png'
 section.registration
   .row
     .medium-offset-2.medium-8.columns
       h1#sign-up Sign up for free
-      = form_for :user, url: user_index_url, method: :post, html: { class: 'sign-up-form' } do |f|
+      = form_for :user, url: users_path, html: { class: 'sign-up-form' } do |f|
         = f.label :email, class: 'hide'
         = f.text_field :email, placeholder: 'your@email.com', class: 'field'
         = f.label :password, class: 'hide'

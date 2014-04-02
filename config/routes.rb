@@ -12,8 +12,8 @@ NinteenEightyFour::Application.routes.draw do
   put   'reset/:code' => 'password#update'
   patch 'reset/:code' => 'password#update'
 
-  resources :user
-  resources :bmail
+  resources :users
+  resources :bmails
 
   get 'sent' => 'bmail#sent', as: :sent
   get 'cancel/:id' => 'bmail#cancel', as: :cancel

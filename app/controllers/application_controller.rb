@@ -18,9 +18,9 @@ class ApplicationController < ActionController::Base
 
   def log_user_in(user, notice = nil)
     if user
-      if user.email_confirmed
+      if true#user.email_confirmed
         session[:user_id] = user.id
-        redirect_to bmail_index_url, notice: notice
+        redirect_to bmails_url, notice: notice
       else
         redirect_to root_url, notice: CONFIRM_EMAIL_NOTICE
       end

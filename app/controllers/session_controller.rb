@@ -1,7 +1,7 @@
 class SessionController < ApplicationController
 
   def new
-    redirect_to bmail_index_url, notice: "You are logged in" if current_user
+    redirect_to bmails_url, notice: "You are logged in" if current_user
   end
 
   def create

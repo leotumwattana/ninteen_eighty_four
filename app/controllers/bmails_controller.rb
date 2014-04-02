@@ -1,4 +1,4 @@
-class BmailController < ApplicationController
+class BmailsController < ApplicationController
 
   layout "main"
 
@@ -25,7 +25,7 @@ class BmailController < ApplicationController
     bmail = Bmail.create(bmail_params)
     current_user.bmails << bmail
     current_user.save
-    redirect_to bmail_index_path
+    redirect_to bmails_path
   end
 
   def edit
@@ -35,7 +35,7 @@ class BmailController < ApplicationController
   def update
     bmail = Bmail.find_by(id: params[:id])
     bmail.update_attributes(bmail_params)
-    redirect_to bmail_index_path
+    redirect_to bmails_path
   end
 
   def destroy

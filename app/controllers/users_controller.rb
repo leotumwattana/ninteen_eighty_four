@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
   CREATE_FAILED = "We were unable to create your account."
   UPDATE_FAILED = "Oppss...how embarrassing. We're not able to update your account information at this time."
@@ -12,6 +12,7 @@ class UserController < ApplicationController
   end
 
   def new
+    @user = User.new
   end
 
   def create
