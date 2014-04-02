@@ -49,7 +49,7 @@ class Bmail
   def schedule_advanced_alert
     unless trigger_date.nil?
       Bmail.skip_callback(:save, :after, :schedule_advanced_alert)
-      job_id = BailAlertWorker.perform_at(trigger_date - time_zone.hours - ADVANCED_ALERT_PERIOD, id.to_s)
+      job_id = BmailNotificationWorker.perform_at(trigger_date - time_zone.hours - ADVANCED_ALERT_PERIOD, id.to_s)
       self.advanced_alert_job_ids << job_id
       self.save
       Bmail.set_callback(:save, :after, :schedule_advanced_alert)
@@ -59,7 +59,7 @@ class Bmail
   def schedule_delivery
     unless trigger_date.nil?
       Bmail.skip_callback(:save, :after, :schedule_delivery)
-      job_id = BailMailWorker.perform_at(trigger_date - time_zone.hours, id.to_s)
+      job_id = BmailDeliveryWorker.perform_at(trigger_date - time_zone.hours, id.to_s)
       self.scheduled_delivery_job_ids << job_id
       self.save
       Bmail.set_callback(:save, :after, :schedule_delivery)
