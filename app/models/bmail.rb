@@ -8,7 +8,7 @@ class Bmail
   include Mongoid::Timestamps
 
   field :title, type: String
-  field :to, type: Array
+  field :to, type: Array, default: []
   field :content, type: String
   field :trigger_date, type: DateTime
   field :scheduled_job_id, type: String

@@ -19,12 +19,12 @@ class BmailsController < ApplicationController
   end
 
   def new
+    @bmail = Bmail.new
   end
 
   def create
     bmail = Bmail.create(bmail_params)
     current_user.bmails << bmail
-    current_user.save
     redirect_to bmails_path
   end
 
@@ -41,7 +41,7 @@ class BmailsController < ApplicationController
   def destroy
     bmail = Bmail.find(params[:id])
     bmail.destroy
-    redirect_to root_url
+    redirect_to bmails_path
   end
 
   def cancel

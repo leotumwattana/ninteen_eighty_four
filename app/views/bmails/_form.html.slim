@@ -5,7 +5,7 @@
         h1 = title
   .row
     .small-12.columns
-      = form_for bmail, url: url do |f|
+      = form_for @bmail do |f|
         .row
           .small-12.columns
             = f.label :to, class: 'hide'

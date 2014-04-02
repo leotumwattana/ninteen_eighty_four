@@ -9,7 +9,6 @@ NinteenEightyFour::Application.routes.draw do
   delete  'logout' => 'session#destroy'
 
   get   'reset/:code' => 'password#edit', as: :reset
-  put   'reset/:code' => 'password#update'
   patch 'reset/:code' => 'password#update'
 
   resources :users
