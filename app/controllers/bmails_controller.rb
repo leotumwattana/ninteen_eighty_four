@@ -46,10 +46,7 @@ class BmailsController < ApplicationController
 
   def cancel
     @bmail = Bmail.find(params["id"])
-
-    @bmail.scheduled_delivery_job_ids.each do |job_id|
-      Sidekiq::Status.unschedule job_id
-    end
+    @bmail.unschedule
 
     log_user_out_without_redirect
     render layout: "layouts/application"

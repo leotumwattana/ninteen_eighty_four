@@ -44,6 +44,12 @@ class Bmail
     self.to.join(', ')
   end
 
+  def unschedule
+    self.scheduled_delivery_job_ids.each do |job_id|
+      Sidekiq::Status.unschedule job_id
+    end
+  end
+
   private
 
   def schedule_advanced_alert
