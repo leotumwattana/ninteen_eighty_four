@@ -1,4 +1,5 @@
 section.hero
+  h1.hide Hero section
   div.noise
   .row
     .medium-12.columns
@@ -10,47 +11,50 @@ section.hero
       = image_tag 'kulio-mini-hawkeye.png', class: 'mini-hawkeye'
       = image_tag 'kulio-mini-swing.png', class: 'mini-swing'
       = image_tag 'kulio-mini-thor.png', class: 'mini-thor'
-      h1 You just never know...
+      h2 You just never know...
 section.use-cases
+  h1.hide Use cases
   .row
     .medium-4.columns
-      h1 Fighting against Dystopia?
+      h2 Fighting against Dystopia?
       = image_tag 'dystopia-icon.png'
     .medium-4.columns
-      h1 Meeting the Mob Boss?
+      h2 Meeting the Mob Boss?
       = image_tag 'mob-boss-icon.png', class: 'shift-up'
     .medium-4.columns
-      h1 Staring Danger in the eye?
+      h2 Staring Danger in the eye?
       = image_tag 'scope-icon.png'
 section.tag-line
+  h1.hide Tag line
   .row
     .medium-12.columns
-      h1 Don't be caught unprepared.
-      h2 Use BMail to make sure your message gets through
-      h3 No matter what happens!
+      h2 Don't be caught unprepared.
+      h3 Use BMail to make sure your message gets through
+      h4 No matter what happens!
 section.how-it-works
   .row.header
     .medium-12.columns
       h1 How it works:
   .row
     .medium-3.columns
-      h1 Write
+      h2 Write
       p your bmail.
       = image_tag 'write-icon.png'
     .medium-3.columns
-      h1 Set
+      h2 Set
       p a time and date.
       = image_tag 'clock-icon.png'
     .medium-3.columns
-      h1 Receive
+      h2 Receive
       p email notification 1 hour before.
       = image_tag 'mail-icon.png'
     .medium-3.columns
-      h1 Ignore
+      h2 Ignore
       p
         ' to let it send as scheduled.
       = image_tag 'question-icon.png'
 section.registration
+  h1.hide Sign up form
   .row
     .medium-offset-2.medium-8.columns
       = render 'users/form'

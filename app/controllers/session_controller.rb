@@ -1,7 +1,10 @@
 class SessionController < ApplicationController
 
+  CHECK_EMAIL_PASSWORD_NOTICE = "Please check your email / password combination and try again."
+  LOGGED_IN_NOTICE = "You are logged in"
+
   def new
-    redirect_to bmails_url, notice: "You are logged in" if current_user
+    redirect_to bmails_url, notice: LOGGED_IN_NOTICE if current_user
   end
 
   def create
@@ -11,7 +14,7 @@ class SessionController < ApplicationController
     else
       return if log_user_in( UserAuthenticator.new(session, flash).authenticate_user(user_params) )
     end
-    redirect_to root_url, alert: "Please check your email / password combination and try again."
+    redirect_to root_url, alert: CHECK_EMAIL_PASSWORD_NOTICE
   end
 
   def destroy

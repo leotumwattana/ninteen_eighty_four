@@ -76,7 +76,7 @@ footer, .push {
   text-align: center;
 }
 
-h1 {
+h1, h2 {
   font-family: 'Special Elite', cursive;
 }
 
@@ -121,7 +121,7 @@ h1 {
   background: linear-gradient(to bottom,  #322c53 39%,#423a6c 74%,#423a6c 74%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#322c53', endColorstr='#423a6c',GradientType=0 ); /* IE6-9 */
 
-  h1 {
+  h2 {
     color: white;
     text-align: center;
     width: 240px;
@@ -222,7 +222,7 @@ h1 {
   border-bottom: 1px solid $purpleBorder;
   text-align: center;
 
-  h1 {
+  h2 {
     font-size: 1.3em;
     color: $darkPurple;
     height: 90px;
@@ -250,13 +250,13 @@ h1 {
   border-bottom: 1px solid $purpleBorder;
   background-color: $purpleBackground;
 
-  h1 {
+  h2 {
     font-size: 2.6em;
     color: $darkPurple;
     background-color: $purpleBackground;
   }
 
-  h2 {
+  h3 {
     font-size: 1.6em;
     margin: 30px auto;
     padding-bottom: 15px;
@@ -266,7 +266,7 @@ h1 {
     width: 366px;
   }
 
-  h3 {
+  h4 {
     font-size: 2em;
     font-style: italic;
     font-weight: 300;
@@ -281,7 +281,7 @@ h1 {
   border-bottom: 1px solid $purpleBorder;
   text-align: center;
 
-  h1 {
+  h2 {
     font-size: 1.3em;
     color: $darkPurple;
   }
@@ -308,7 +308,7 @@ h1 {
   padding: 50px 0;
   height: 500px;
 
-  h1 {
+  h2 {
     font-size: 1.8em;
     color: $darkPurple;
   }
