@@ -19,7 +19,7 @@ class Bmail
 
   belongs_to :user, dependent: :nullify
 
-  after_save :schedule_advanced_alert, :schedule_delivery
+  after_save :schedule_alert_and_delivery
 
   scope :active, -> { where(:trigger_date.ne => nil).where(ACTIVE_MONGOID_JS_QUERY).desc(:trigger_date) }
   scope :pending, -> { where(:trigger_date => nil).desc(:created_at) }
@@ -52,24 +52,33 @@ class Bmail
 
   private
 
+  def schedule_alert_and_delivery
+   skip_after_save_callbacks do
+    schedule_advanced_alert
+    schedule_delivery
+   end
+  end
+
   def schedule_advanced_alert
     unless trigger_date.nil?
-      Bmail.skip_callback(:save, :after, :schedule_advanced_alert)
       job_id = BmailNotificationWorker.perform_at(trigger_date - time_zone.hours - ADVANCED_ALERT_PERIOD, id.to_s)
       self.advanced_alert_job_ids << job_id
       self.save
-      Bmail.set_callback(:save, :after, :schedule_advanced_alert)
     end
   end
 
   def schedule_delivery
     unless trigger_date.nil?
-      Bmail.skip_callback(:save, :after, :schedule_delivery)
       job_id = BmailDeliveryWorker.perform_at(trigger_date - time_zone.hours, id.to_s)
       self.scheduled_delivery_job_ids << job_id
       self.save
-      Bmail.set_callback(:save, :after, :schedule_delivery)
     end
+  end
+
+  def skip_after_save_callbacks(&block)
+    Bmail.skip_callback(:save, :after, :schedule_alert_and_delivery)
+    block.call
+    Bmail.set_callback(:save, :after, :schedule_alert_and_delivery)
   end
 
   def split_emails(emails)
