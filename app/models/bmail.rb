@@ -59,7 +59,7 @@ class Bmail
   private
 
   def schedule_alert_and_delivery
-   skip_after_save_callbacks do
+   skip_after_save_callbacks(__method__) do
     schedule_advanced_alert
     schedule_delivery
    end
@@ -81,10 +81,10 @@ class Bmail
     end
   end
 
-  def skip_after_save_callbacks(&block)
-    Bmail.skip_callback(:save, :after, :schedule_alert_and_delivery)
+  def skip_after_save_callbacks(meth, &block)
+    Bmail.skip_callback(:save, :after, meth)
     block.call
-    Bmail.set_callback(:save, :after, :schedule_alert_and_delivery)
+    Bmail.set_callback(:save, :after, meth)
   end
 
   def split_emails(emails)
