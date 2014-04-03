@@ -32,6 +32,12 @@ class Bmail
   alias _to= to=
   alias to_as_array to
 
+  alias _id id
+
+  def id
+    _id.to_s
+  end
+
   def to=(emails)
     self._to = emails.split(',').map { |e| e.strip.chomp }
   end
@@ -69,7 +75,7 @@ class Bmail
 
   def schedule_delivery
     unless trigger_date.nil?
-      job_id = BmailDeliveryWorker.perform_at(trigger_date - time_zone.hours, id.to_s)
+      job_id = BmailDeliveryWorker.perform_at(trigger_date - time_zone.hours, id)
       self.scheduled_delivery_job_ids << job_id
       self.save
     end
