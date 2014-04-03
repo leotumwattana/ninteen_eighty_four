@@ -2,6 +2,11 @@ require 'sidekiq/web'
 
 NinteenEightyFour::Application.routes.draw do
 
+  mount Sidekiq::Web, at: '/sidekiq'
+
+  resources :users
+  resources :bmails
+
   root 'site#index'
 
   get     'login'  => 'session#new'
@@ -11,13 +16,8 @@ NinteenEightyFour::Application.routes.draw do
   get   'reset/:code' => 'password#edit', as: :reset
   patch 'reset/:code' => 'password#update'
 
-  resources :users
-  resources :bmails
-
   get 'sent' => 'bmails#sent', as: :sent
   get 'cancel/:id' => 'bmails#cancel', as: :cancel
-
-  mount Sidekiq::Web, at: '/sidekiq'
 
   get '/privacy' => 'site#privacy'
   get '/terms'   => 'site#terms'
